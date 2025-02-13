@@ -4,6 +4,9 @@ from constants import *
 pygame.init()
 
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+timer = pygame.time.Clock()
+
+dt = 0
 
 def main():
     while True:
@@ -14,6 +17,8 @@ def main():
 
         screen.fill((0,0,0))
         pygame.display.flip()
+        dt = timer.tick(60) / 1000
+
 
 if __name__ == "__main__":
     main()
