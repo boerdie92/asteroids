@@ -39,10 +39,11 @@ def main():
 
         updatable.update(dt, shots)
 
-        for asteroid in asteroids:
-            for shot in shots:
+        for asteroid in asteroids.copy():  # Iterate over a copy
+            for shot in shots.copy():  # Iterate safely over a copy of shots too
                 if shot.collision(asteroid):
-                    asteroid.kill(), shot.kill()
+                    asteroid.split()
+                    shot.kill()
 
         for asteroid in asteroids:
             if player.collision(asteroid):
